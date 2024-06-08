@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pyscript.net/releases/2024.5.2/core.css"
+    />
+    <script
+      type="module"
+      src="https://pyscript.net/releases/2024.5.2/core.js"
+    ></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>RSA Simulator</h1>
+      <p>By Ali Yehia</p>
+      <hr />
+      <div>
+        <h2>Your public key</h2>
+        <h3>E: <span id="value-e">Generating...</span></h3>
+        <h3>N: <span id="value-n">Generating...</span></h3>
+      </div>
+      <hr />
+      <div class="select-container">
+        <select id="mode-select">
+          <option value="encrypt">RSA Encrypt</option>
+          <option value="decrypt">RSA Decrypt</option>
+        </select>
+      </div>
+      <div id="encrypt">
+        <p>Enter recipient's public key and send them your ciphertext.</p>
+        <div>
+          <h3>E value</h3>
+          <input
+            type="number"
+            id="input-e"
+            placeholder="Enter E value..."
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <h3>N value</h3>
+          <input
+            type="number"
+            id="input-n"
+            placeholder="Enter N value..."
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <h3>Message</h3>
+          <textarea id="input-msg" placeholder="Enter message..."></textarea>
+          <button py-click="encrypt">Encrypt</button>
+        </div>
+        <div>
+          <span class="copy-container">
+            <h3>Ciphertext</h3>
+            <p class="copy" data-input="value-ciphertext">(Copy)</p>
+          </span>
+          <textarea
+            id="value-ciphertext"
+            placeholder="Ciphertext output..."
+            readonly
+          ></textarea>
+        </div>
+      </div>
+      <div id="decrypt" style="display: none">
+        <p>Send your public key to the sender and enter their ciphertext.</p>
+        <div>
+          <h3>Ciphertext</h3>
+          <textarea
+            id="input-ciphertext"
+            placeholder="Enter ciphertext..."
+          ></textarea>
+          <button py-click="decrypt">Decrypt</button>
+        </div>
+        <div>
+          <span class="copy-container">
+            <h3>Message</h3>
+            <p class="copy" data-input="value-msg">(Copy)</p>
+          </span>
+          <textarea
+            id="value-msg"
+            placeholder="Original message..."
+            readonly
+          ></textarea>
+        </div>
+      </div>
+    </main>
+    <script type="py" src="./main.py"></script>
+  </body>
+</html>
