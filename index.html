@@ -26,12 +26,6 @@
       <h1>RSA Simulator</h1>
       <p>By Ali Yehia for Langton Huge Primes</p>
       <hr />
-      <div>
-        <h2>Your public key</h2>
-        <h3>E: <span id="value-e">Generating...</span></h3>
-        <h3>N: <span id="value-n">Generating...</span></h3>
-      </div>
-      <hr />
       <div class="select-container">
         <select id="mode-select">
           <option value="encrypt">RSA Encrypt</option>
@@ -76,6 +70,11 @@
         </div>
       </div>
       <div id="decrypt" style="display: none">
+        <div>
+          <h3>Your public key</h3>
+          <h4>E: <span id="value-e">Generating...</span></h4>
+          <h4>N: <span id="value-n">Generating...</span></h4>
+        </div>
         <p>Send your public key to the sender and enter their ciphertext.</p>
         <div>
           <h3>Ciphertext</h3>
