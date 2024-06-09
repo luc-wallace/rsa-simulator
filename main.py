@@ -1,6 +1,6 @@
 import random
 import string
-from pyscript import document
+from pyscript import document, window
 from pyodide.ffi import create_proxy
 
 mode_select = document.getElementById("mode-select")
@@ -46,7 +46,8 @@ for _ in range(100):
     primes.append(next(primenum))
 
 
-def gen_credentials():
+def gen_credentials(_=None):
+    global e, n, a, d
     p = primes[random.randint(0, len(primes) - 1)]
     q = primes[random.randint(0, len(primes) - 1)]
     n = p * q
@@ -64,7 +65,12 @@ def gen_credentials():
         a = a % r
         d += 1
 
-    return e, n, a, d
+    e_label.innerText = e
+    n_label.innerText = n
+    window.localStorage.setItem("e", e)
+    window.localStorage.setItem("n", n)
+    window.localStorage.setItem("a", a)
+    window.localStorage.setItem("d", d)
 
 
 def change_mode(e):
@@ -123,6 +129,13 @@ def decrypt(_):
 mode_select.addEventListener("change", create_proxy(change_mode))
 
 
-e, n, a, d = gen_credentials()
+try:
+    e = int(window.localStorage.getItem("e"))
+    n = int(window.localStorage.getItem("n"))
+    a = int(window.localStorage.getItem("a"))
+    d = int(window.localStorage.getItem("d"))
+except (ValueError, TypeError):
+    gen_credentials()
+
 e_label.innerText = e
 n_label.innerText = n

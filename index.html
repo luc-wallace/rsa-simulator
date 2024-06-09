@@ -58,9 +58,9 @@
           <button py-click="encrypt">Encrypt</button>
         </div>
         <div>
-          <span class="copy-container">
+          <span class="multiaction">
             <h3>Ciphertext</h3>
-            <p class="copy" data-input="value-ciphertext">(Copy)</p>
+            <p class="second-action copy" data-input="value-ciphertext">(Copy)</p>
           </span>
           <textarea
             id="value-ciphertext"
@@ -71,7 +71,10 @@
       </div>
       <div id="decrypt" style="display: none">
         <div>
-          <h3>Your public key</h3>
+          <div class="multiaction">
+            <h3>Your public key</h3>
+            <p py-click="gen_credentials" class="second-action" data-input="value-msg">(Regenerate)</p>
+          </div>
           <h4>E: <span id="value-e">Generating...</span></h4>
           <h4>N: <span id="value-n">Generating...</span></h4>
         </div>
@@ -85,9 +88,9 @@
           <button py-click="decrypt">Decrypt</button>
         </div>
         <div>
-          <span class="copy-container">
+          <span class="multiaction">
             <h3>Message</h3>
-            <p class="copy" data-input="value-msg">(Copy)</p>
+            <p class="second-action copy" data-input="value-msg">(Copy)</p>
           </span>
           <textarea
             id="value-msg"

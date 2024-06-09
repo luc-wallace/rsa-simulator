@@ -70,19 +70,6 @@ input[type="number"] {
   appearance: textfield;
 }
 
-.copy-container {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  width: max-content;
-}
-
-.copy {
-  cursor: pointer;
-  color: purple;
-  font-weight: 800;
-}
-
 textarea {
   outline: none;
   border: none;
@@ -127,6 +114,21 @@ hr {
 
 .select-container h2 {
   margin: 0 0.5rem 0 0;
+}
+
+.multiaction {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.5rem !important;
+  width: 100%;
+}
+
+.second-action {
+  cursor: pointer;
+  color: purple;
+  font-weight: 800;
+  user-select: none;
 }
 
 @media screen and (max-width: 800px) {
